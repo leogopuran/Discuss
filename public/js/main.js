@@ -41,7 +41,7 @@ socket.on(topic, function(msg) {
 });
 
 // append text if someone is online
-socket.on('is_online_'+ topic, function(username, topic) {
+socket.on('is_online_'+ topic, function(username) {
     $('#messages').append($('<li class="userStatus">').html(username));
     scrollToLastMessage();
 });
