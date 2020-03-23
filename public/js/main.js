@@ -7,7 +7,7 @@ username = localStorage.getItem('userName');
 console.log(username + " retrived from localStorage");
 
 if(!emptyValueCheckList.includes(username)){
-	socket = io.connect('http://192.168.1.103:8080');
+	socket = io.connect('http://34.207.71.75:8080/');
 	socket.emit('username', username);
 }
 else {
