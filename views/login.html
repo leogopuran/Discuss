@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simple Group Chat on Node.js</title>
+  <script src="../../socket.io/socket.io.js"></script>
+  <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="css/login.css"></link>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <script src="dist/jquery.min.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/font-awesome.min.css" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <!-- <div class="h-100 row align-items-center">
+    <div class="col-6 offset-3 text-center loginform">
+      <input type="text" id="userName"></input>
+      <input type="text" id="topic"></input>
+      <button class="col-12 offset-0 text-center btn btn-primary" onclick="loginMethod()">
+        <i class="fab fa-facebook-square"></i> LOGIN
+      </button>
+    </div>
+  </div> -->
+
+  <div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h4>Lets Discuss</h4>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="userName" class="fadeIn second" name="login" placeholder="User Name">
+      <input type="text" id="topic" class="fadeIn third" name="login" placeholder="Topic to Discuss">
+      <input type="button" onclick="readUserData()" class="fadeIn fourth" value="Join">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Facebook SignIn</a>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+
+<script src="js/login.js"></script>
+
+</html>

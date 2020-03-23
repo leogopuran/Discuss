@@ -1,0 +1,90 @@
+
+body {
+ background-image: url("https://fsa.zobj.net/crop.php?r=1FFmeiuIqLkhVat_lJBYDAFQ14R_aR2OBXC0-QGa_mKz-Fm9VCFQFECKpyWEhvBg3E3GSh4LKsgRquR0sj55oOzv8nlWrvOXvM3WfkUoEWRAwCLKhpR9ZAv_9jJHVgD9_BH3yJtrcS6KRyVTLvj73TGSsM85E9Y7dKqmmZ-uHNu2wBqoTxRCJ6M7C6c");
+ /*background-color: #cccccc;*/
+}
+
+
+.navStyle {
+	padding: 0;
+}
+
+.navBrand {
+	font-family: cursive;
+    color: #d0d02d !important;;
+}
+
+.msgContainer{
+	padding: 1% !important ;
+	/*background-color: #04030329;*/
+	height: calc(100vh - 110px);
+    overflow: scroll;
+    scroll-snap-align: end;
+}
+
+.messageInput{
+	padding: 1%;
+}
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#messages li {
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+
+#messages li:nth-child(even) {
+  background: #7171715e;
+}
+
+#messages li:nth-child(odd) {
+  background: #7171715e;
+}
+
+#messages li strong {
+    border: 1px solid;
+    border-radius: 3px;
+    background-color: lightblue;
+    padding: 2px;
+}
+
+#messages li p {
+    padding: 5px;
+    color: white;
+    margin-bottom: 0;
+}
+
+.timeStamp {
+    /*float: right;*/
+    font-style: italic;
+    font-size: smaller;
+    color: grey;
+}
+
+.nameBadge {
+	color: rgb(255, 255, 255); 
+	/*background-color: #009989;*/
+	border: 3px solid rgb(221, 221, 221);
+	display: inline-block; font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 16px;
+    border-radius: 72px;
+    width: 40px;
+    height: 40px;
+    line-height: 21px;
+    padding: 7px;
+    margin: 5px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.userStatus{
+	text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: grey;
+    background-color: #ffffff00 ! important;
+}

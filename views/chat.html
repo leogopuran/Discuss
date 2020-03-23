@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Group Chat on Node.js</title>
+  <script src="../../socket.io/socket.io.js"></script>
+  <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="css/chat.css"></link>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <script src="dist/jquery.min.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/font-awesome.min.css" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="container-fluid col-12" style="padding: 0;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="mx-auto">
+        <a href="#" class="navbar-brand navBrand">Lets Discuss on <label id="topicName"></label></a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+          <button type = "button" class="btn btn-outline-danger my-2 my-sm-0" onclick="disconnect()">Disconnect</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+  <div id="msgs" class="msgContainer container col-12">
+    <ul id="messages">
+      <!-- <li class="row">
+        <div class="nameBadge col-0">LV</div>
+        <p class="col-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently - <label class="timeStamp">21/3/2020 22:0:55</label></p>
+      </li> -->
+    </ul>
+  </div>
+
+  
+  <div class="footer">
+    <form class="fixed-bottom col-md-12 messageInput" action="/" method="POST" id="chatForm">
+    <div class="input-group">
+      <input id="txt" autocomplete="off" oninput="isTyping()" autofocus="on" type="text" class="form-control" placeholder="Message Here...">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit">
+          <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </form>  
+  </div>
+<script src="js/main.js"></script>
+</body>
+</html>
