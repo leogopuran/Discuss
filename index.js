@@ -108,9 +108,9 @@ function generateColorCode(str) {
     return colorCode;
 }
 
-var clearResult = setInterval(function() { clearUploadsFolder() }, 10000);
+var clearResult = setInterval(function() { clearUploadsFolder() }, 600000);
 
 function clearUploadsFolder(){
-     var clearResult = findRemoveSync('public/images/uploads', {age: {seconds: 600}, dir: "*", files: "*.*"});
+     var clearResult = findRemoveSync('public/images/uploads', {age: {seconds: 3600}, dir: "*", files: "*.*"});
 }
 
