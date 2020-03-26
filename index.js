@@ -112,6 +112,5 @@ var clearResult = setInterval(function() { clearUploadsFolder() }, 10000);
 
 function clearUploadsFolder(){
      var clearResult = findRemoveSync('public/images/uploads', {age: {seconds: 600}, dir: "*", files: "*.*"});
-     console.log(JSON.stringify(clearResult));
 }
 
