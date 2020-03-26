@@ -6,7 +6,7 @@ var emptyValueCheckList = ["", "Undefined", "undefined", undefined, null];
 // ask username
 function readUserData(){
 	var username = $('#userName').val();
-	var topic = $('#topic').val();
+	var topic = $('#topic').val().toLowerCase();
 
 	if(!emptyValueCheckList.includes(username)){
 		if(localStorage){

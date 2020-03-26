@@ -58,11 +58,29 @@ body {
     margin-bottom: 0;
 }
 
+/*#messages li img {
+  max-height: 600px;
+  width: 300px;
+  padding: 7px;
+}
+*/
 .timeStamp {
     /*float: right;*/
     font-style: italic;
     font-size: smaller;
     color: grey;
+    padding: 7px;
+
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+.custom-file-upload .custom-file-upload-label {
+    /*border: 1px solid #ccc;*/
+    display: inline-block;
+    padding: 6px 10px 0px 10px;    
+    cursor: pointer;
 }
 
 .nameBadge {

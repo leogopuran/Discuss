@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
+const siofu = require("socketio-file-upload");
+const findRemoveSync = require('find-remove');
 const io = require('socket.io')(http,{
 	pingInterval: 60000,
   	pingTimeout: 60000
@@ -15,6 +17,7 @@ app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.static(path.join(__dirname + "/node_modules/bootstrap")));
 app.use(express.static(path.join(__dirname + "/node_modules/jquery")));
 app.use(express.static(path.join(__dirname + "/node_modules/font-awesome")));
+app.use(siofu.router);
 
 app.get('/', function(req, res) {
     res.render('login.html');
@@ -46,8 +49,25 @@ io.sockets.on('connection', function(socket) {
         console.log("message : " + message);
         console.log("topic : " + topicName);
     	if(emptyUsernameCheck(socket.username)){
-        	io.emit(topicName, '<div class="nameBadge col-0" style="background-color:' + generateColorCode(socket.username) + ';">' + generateNameBadge(socket.username) + '</div><p class="col-10">' + message + ' - <label class = "timeStamp">'+ generateTimeStamp() +'</label></p>');
+            if (typeof message === 'string') { 
+        	   io.emit(topicName, '<div class="nameBadge col-0" style="background-color:' + generateColorCode(socket.username) + ';">' + generateNameBadge(socket.username) + '</div><p class="col-10">' + message + ' - <label class = "timeStamp">'+ generateTimeStamp() +'</label></p>');
+            }
+            else{
+                io.emit(topicName, '<div class="nameBadge col-0" style="background-color:' + generateColorCode(socket.username) + ';">' + generateNameBadge(socket.username) + '</div><img class="img-responsive" width="300" height="250" src="' + message.filePath + '"> - <label class = "timeStamp">'+ generateTimeStamp() +'</label>');
+            }
         }
+    });
+
+    var uploader = new siofu();
+    uploader.dir = "public/images/uploads";
+    uploader.listen(socket);
+
+    uploader.on('progress', function(event) {
+        socket.emit('upload.progress', {
+            percentage:(event.file.bytesLoaded / event.file.size) * 100,
+            fileName: event.file.name,
+            filePath: '/images/uploads/' + event.file.name
+        });
     });
 
 });
@@ -86,5 +106,12 @@ function generateColorCode(str) {
                     });
     colorCode = colorCode.slice(0, 7);
     return colorCode;
+}
+
+var clearResult = setInterval(function() { clearUploadsFolder() }, 10000);
+
+function clearUploadsFolder(){
+     var clearResult = findRemoveSync('public/images/uploads', {age: {seconds: 600}, dir: "*", files: "*.*"});
+     console.log(JSON.stringify(clearResult));
 }
 

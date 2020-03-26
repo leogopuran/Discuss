@@ -14,12 +14,22 @@ else {
 	alert("connectivity failed..!");
 }
 
+
 // submit text message without reload/refresh the page
 var topic;
 let urlParams = new URLSearchParams(window.location.search);
 if(urlParams.has('topic')){
     topic = urlParams.get('topic')
 }
+
+var uploader = new SocketIOFileUpload(socket);
+uploader.listenOnInput(document.getElementById("siofu_input"));
+
+socket.on('upload.progress', function(uploadProgress) {
+    if(uploadProgress.percentage == 100){
+        socket.emit(topic, uploadProgress, topic);
+    }
+});
 
 $('#chatForm').submit(function(e) {
     e.preventDefault(); // prevents page reloading
@@ -63,7 +73,11 @@ function setTopicName(){
 function disconnect(){
     localStorage.removeItem('userName')
     window.location.href('/');
-  } 
+} 
+
+function uploadImg(imageElement){
+    return imageElement;
+}
 
 $(document).ready(function(){
     setTopicName();

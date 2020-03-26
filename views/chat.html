@@ -4,6 +4,7 @@
   <title>Simple Group Chat on Node.js</title>
   <script src="../../socket.io/socket.io.js"></script>
   <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+  <script src="/siofu/client.js"></script>
   <link rel="stylesheet" type="text/css" href="css/chat.css"></link>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,6 +53,12 @@
     <form class="fixed-bottom col-md-12 messageInput" action="/" method="POST" id="chatForm">
     <div class="input-group">
       <input id="txt" autocomplete="off" oninput="isTyping()" autofocus="on" type="text" class="form-control" placeholder="Message Here...">
+      <div class="input-group-append custom-file-upload btn-secondary">
+        <input type="file" id="siofu_input">
+        <label class="custom-file-upload-label" for="siofu_input">
+          <i class="fa fa-paperclip" aria-hidden="true"></i>
+        </label>
+      </div>
       <div class="input-group-append">
         <button class="btn btn-primary" type="submit">
           <i class="fa fa-paper-plane" aria-hidden="true"></i>
